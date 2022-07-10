@@ -1,0 +1,28 @@
+.title {
+    font-weight: 600;
+    grid-area: title;
+}
+
+.decription {
+    grid-area: description;
+}
+
+.root {
+    padding: 10px 5px;
+    display: grid;
+    grid-template-areas: 
+    "title action"
+    "description action";
+    grid-template-columns: 1fr min-content; 
+}
+
+.completedTask {
+    color: #666;
+    text-decoration: line-through;
+}
+
+.action {
+    grid-area: action;
+    align-self: center;
+    --button-text-color: #000;
+}

@@ -1,0 +1,19 @@
+.root {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    overflow: hidden;
+}
+
+.element {
+    padding: 10px;
+    display: grid;
+    gap: 10px;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.element:hover {
+    background: var(--color-primary);
+    color: var(--color-text-accent);
+}

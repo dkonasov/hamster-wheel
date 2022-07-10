@@ -1,0 +1,15 @@
+.projectForm {
+    display: grid;
+    gap: 10px;
+}
+
+.projectField {
+    display: grid;
+    gap: 4px;
+}
+
+.buttonsRow {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    justify-content: center;
+}

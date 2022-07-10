@@ -1,0 +1,8 @@
+{
+    "include": ["src/schematics/**/*"],
+    "compilerOptions": {
+        "outDir": "schematics",
+        "esModuleInterop": true,
+        "skipLibCheck": true
+    }
+}

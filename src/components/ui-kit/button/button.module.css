@@ -1,0 +1,38 @@
+.variant-round {
+    --button-border-radius: 50%;
+    --button-background: var(--color-primary);
+    --button-text-color: var(--color-text-accent);
+    --button-padding: 0;
+}
+
+.variant-primary {
+    --button-border-radius: 10px;
+    --button-background: var(--color-primary);
+    --button-text-color: var(--color-text-accent);
+    --button-padding: 10px;
+}
+
+.variant-secondary {
+    --button-border-radius: 10px;
+    --button-background: transparent;
+    --button-text-color: var(--color-primary);
+    --button-padding: 10px;
+}
+
+.root {
+    border-radius: var(--button-border-radius);
+    background: var(--button-background);
+    color: var(--button-text-color);
+    display: flex;
+    padding: var(--button-padding);
+    border: none;
+}
+
+.root:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.root:active {
+    opacity: .7;
+}

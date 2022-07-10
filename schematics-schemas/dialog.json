@@ -1,0 +1,18 @@
+{
+  "$id": "DialogSchematics",
+  "title": "Dialog schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of dialog.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    }
+  },
+  "required": [
+      "name"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "dialog": {
+      "description": "Dialog schematic.",
+      "factory": "./schematics/dialog",
+      "schema": "./schematics-schemas/dialog.json"
+    }
+  }
+}

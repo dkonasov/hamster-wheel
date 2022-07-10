@@ -1,0 +1,12 @@
+.root {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 100%;
+    height: 100%;
+}
+
+.nav {
+    width: 200px;
+    border-right: 1px solid #000;
+}
+

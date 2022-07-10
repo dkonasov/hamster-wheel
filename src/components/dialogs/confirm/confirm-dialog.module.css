@@ -1,0 +1,20 @@
+.content {
+    display: grid;
+    grid-template-areas:
+                        "text text"
+                        "ok cancel";
+    row-gap: 1em;
+    grid-template-columns: min-content;
+}
+
+.text {
+    grid-area: text;
+}
+
+.ok {
+    grid-area: ok;
+}
+
+.cancel {
+    grid-area: cancel;
+}

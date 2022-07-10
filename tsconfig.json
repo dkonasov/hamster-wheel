@@ -1,0 +1,12 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "skipLibCheck": true,
+        "typeRoots": ["src/global.d.ts" ],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "sourceMaps": "inline",
+  "ignore": ["src/stories", "src/schematics"],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    [
+      "babel-plugin-css-modules-transform",
+      {
+        "extensions": [".css"],
+        "extractCss": "./dist/styles.css"
+      }
+    ]
+  ],
+  "env": {
+    "storybook": {
+      "plugins": [
+        [
+          "babel-plugin-css-modules-transform",
+          {
+            "extensions": [".css"]
+          }
+        ]
+      ]
+    }
+  }
+}

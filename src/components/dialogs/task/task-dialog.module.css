@@ -1,0 +1,15 @@
+.taskForm {
+    display: grid;
+    gap: 10px;
+}
+
+.taskField {
+    display: grid;
+    gap: 4px;
+}
+
+.buttonsRow {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    justify-content: center;
+}

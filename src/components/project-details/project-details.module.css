@@ -1,0 +1,26 @@
+.root {
+    height: 100%;
+    position: relative;
+}
+
+.list {
+    height: 100%;
+    overflow: scroll;
+}
+
+.element:nth-child(even) {
+    background: var(--color-primary-100);
+}
+
+.noProject, .toTasks {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+}
+
+.floatingButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}

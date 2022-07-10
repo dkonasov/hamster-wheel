@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url(./fonts/OpenSans.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url(./fonts/OpenSans.ttf) format("truetype");
+    font-weight: 600;
+
+    font-variation-settings: 'wght' 600;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', serif;
+}
+
+h2 {
+    margin: 0px;
+}
+
+.skeleton-bar {
+    height: 1em;
+    background: var(--color-primary);
+}
