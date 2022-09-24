@@ -3,8 +3,9 @@
     grid-area: title;
 }
 
-.decription {
+.description {
     grid-area: description;
+    white-space: pre-wrap;
 }
 
 .root {
