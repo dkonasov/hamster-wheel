@@ -20,6 +20,11 @@
     grid-template-columns: 1fr min-content;
 }
 
+.root:focus-visible {
+    box-shadow: 1px 0px 0px 2px var(--color-primary) inset;
+    outline: none;
+}
+
 .root:hover, .root.selected {
     background: var(--color-primary);
     color: var(--color-text-accent);

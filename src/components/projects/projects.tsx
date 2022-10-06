@@ -42,6 +42,9 @@ export const Projects: FC = () => {
               key={project.id}
               project={project}
               onClick={() => selectProject(project.id)}
+              onKeyDown={(ev) => {
+                ev.key === "Enter" && selectProject(project.id);
+              }}
             />
           ))}
         </div>
