@@ -73,6 +73,7 @@ export const ProjectsListElem: FC<ProjectsListElemProps> = (props) => {
         className={cx(styles.root, {
           [styles.selected]: selectedProject === project.id,
         })}
+        tabIndex={0}
         {...restProps}
       >
         <div className={styles.title}>{project.name}</div>
