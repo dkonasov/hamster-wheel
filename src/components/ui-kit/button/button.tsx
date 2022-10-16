@@ -1,9 +1,9 @@
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, forwardRef, HTMLAttributes } from "react";
 import { FC } from "react";
 import cx from "classnames";
 import styles from "./button.module.css";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "round" | "clear" | "primary" | "secondary";
   type?: "submit" | "button";
 }
