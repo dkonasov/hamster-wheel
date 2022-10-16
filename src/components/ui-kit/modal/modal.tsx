@@ -1,4 +1,10 @@
-import React, { FC, HTMLAttributes, useCallback, KeyboardEvent } from "react";
+import React, {
+  FC,
+  HTMLAttributes,
+  useCallback,
+  KeyboardEvent,
+  useRef,
+} from "react";
 import styles from "./modal.module.css";
 import cx from "classnames";
 import { Button } from "../button/button";
@@ -16,6 +22,7 @@ export const Modal: FC<ModalProps> = (props) => {
   const handleClose = useCallback(() => {
     onClose?.();
   }, [onClose]);
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
   const handleKeyboardClose = useCallback(
     (event: KeyboardEvent) => {
@@ -25,6 +32,30 @@ export const Modal: FC<ModalProps> = (props) => {
     },
     [onClose]
   );
+
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (!rootRef.current || event.key !== "Tab") {
+      return;
+    }
+
+    const focusableElements = Array.from(
+      rootRef.current.getElementsByTagName("*")
+    ).filter((el: HTMLElement) => el.tabIndex > -1) as HTMLElement[];
+
+    const lastFocusableElement =
+      focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && event.target === focusableElements[0]) {
+      event.preventDefault();
+      lastFocusableElement.focus();
+      return;
+    }
+
+    if (!event.shiftKey && event.target === lastFocusableElement) {
+      event.preventDefault();
+      focusableElements[0].focus();
+    }
+  };
 
   if (!visible) {
     return null;
@@ -38,6 +69,8 @@ export const Modal: FC<ModalProps> = (props) => {
       aria-label={title}
       className={cx(className, styles.root)}
       onKeyUp={handleKeyboardClose}
+      ref={rootRef}
+      onKeyDown={handleKeydown}
     >
       <div className={styles.titleRow}>
         <h2 className={styles.title}>{title}</h2>
