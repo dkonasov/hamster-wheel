@@ -41,7 +41,7 @@ export const Modal: FC<ModalProps> = (props) => {
     >
       <div className={styles.titleRow}>
         <h2 className={styles.title}>{title}</h2>
-        <Button variant="clear">
+        <Button variant="clear" autoFocus>
           <Close size={36} onClick={handleClose} />
         </Button>
       </div>
