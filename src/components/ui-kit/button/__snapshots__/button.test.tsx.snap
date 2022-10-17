@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render button 1`] = `"<button class="button-module__root___1pVgv button-module__variant-primary___3dh1m">Test</button>"`;
