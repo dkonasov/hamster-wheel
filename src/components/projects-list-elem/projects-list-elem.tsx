@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent, useRef, useState } from "react";
 import { useCallback } from "react";
 import { FC } from "react";
 import { Project } from "../../entities/project";
@@ -67,6 +67,9 @@ export const ProjectsListElem: FC<ProjectsListElemProps> = (props) => {
     [setEditVisible]
   );
 
+  const editButtonRef = useRef(null);
+  const deleteButtonRef = useRef(null);
+
   return (
     <>
       <div
@@ -84,6 +87,7 @@ export const ProjectsListElem: FC<ProjectsListElemProps> = (props) => {
           variant="clear"
           className={styles.edit}
           onClick={handleEditTrigger}
+          ref={editButtonRef}
         >
           <Edit size={24} />
         </Button>
@@ -91,6 +95,7 @@ export const ProjectsListElem: FC<ProjectsListElemProps> = (props) => {
           variant="clear"
           className={styles.delete}
           onClick={handleDeletionTrigger}
+          ref={deleteButtonRef}
         >
           <Delete size={24} />
         </Button>
@@ -101,12 +106,14 @@ export const ProjectsListElem: FC<ProjectsListElemProps> = (props) => {
         visible={deleteConfirmVisible}
         onClose={handleConfirmClose}
         onConfirm={handleDeletion}
+        triggerRef={deleteButtonRef}
       />
       <ProjectsDialog
         visible={editVisible}
         project={project}
         onClose={handleEditClose}
         onProjectSave={handleEdit}
+        triggerRef={editButtonRef}
       />
     </>
   );

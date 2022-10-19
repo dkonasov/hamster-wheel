@@ -1,5 +1,5 @@
 import { useStore } from "effector-react";
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import { useCallback } from "react";
 import { useState } from "react";
 import { Task } from "../../entities/task";
@@ -18,6 +18,7 @@ export const ProjectDetails: FC<{}> = () => {
   const projectIsSelected = typeof selectedProject === "number";
   const tasks = useStore(tasks$);
   const [createDialogIsVisible, setCreateDialogIsVisible] = useState(false);
+  const addButton = useRef(null);
 
   const showCreateDialog = useCallback(() => {
     setCreateDialogIsVisible(true);
@@ -64,6 +65,7 @@ export const ProjectDetails: FC<{}> = () => {
           className={styles.floatingButton}
           variant="round"
           onClick={showCreateDialog}
+          ref={addButton}
         >
           <Plus />
         </Button>
@@ -72,6 +74,7 @@ export const ProjectDetails: FC<{}> = () => {
         visible={createDialogIsVisible}
         onClose={hideCreateDialog}
         onTaskSave={handleTaskCreate}
+        triggerRef={addButton}
       />
     </div>
   );
