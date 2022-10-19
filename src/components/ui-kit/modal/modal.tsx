@@ -4,6 +4,7 @@ import React, {
   useCallback,
   KeyboardEvent,
   useRef,
+  RefObject,
 } from "react";
 import styles from "./modal.module.css";
 import cx from "classnames";
@@ -15,22 +16,32 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   visible: boolean;
   title: string;
   onClose?: () => void;
+  triggerRef?: RefObject<HTMLElement>;
 }
 
 export const Modal: FC<ModalProps> = (props) => {
-  const { visible, children, className, title, onClose, ...restProps } = props;
+  const {
+    visible,
+    children,
+    className,
+    title,
+    onClose,
+    triggerRef,
+    ...restProps
+  } = props;
   const handleClose = useCallback(() => {
     onClose?.();
-  }, [onClose]);
+    triggerRef?.current?.focus();
+  }, [onClose, triggerRef]);
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   const handleKeyboardClose = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        onClose?.();
+        handleClose();
       }
     },
-    [onClose]
+    [handleClose]
   );
 
   const handleKeydown = (event: KeyboardEvent) => {

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState, FormEvent } from "react";
+import React, { FC, useCallback, useState, FormEvent, useRef } from "react";
 import { useStore } from "effector-react";
 import { createProject, projects$, selectProject } from "../../state/projects";
 import { ProjectsSkeleton } from "../skeletons//projects/projects-skeleton";
@@ -15,6 +15,7 @@ export const Projects: FC = () => {
   const openProjectModal = useCallback(() => {
     setProjectModalVisible(true);
   }, [setProjectModalVisible]);
+  const addButtonRef = useRef(null);
 
   const closeProjectModal = useCallback(() => {
     setProjectModalVisible(false);
@@ -54,6 +55,7 @@ export const Projects: FC = () => {
           className={styles.floatingButton}
           onClick={openProjectModal}
           variant="round"
+          ref={addButtonRef}
         >
           <Plus />
         </Button>
@@ -62,6 +64,7 @@ export const Projects: FC = () => {
         visible={projectModalVisible}
         onProjectSave={handleProjectCreate}
         onClose={closeProjectModal}
+        triggerRef={addButtonRef}
       />
     </div>
   );
